@@ -51,3 +51,33 @@ website sessions.
   2.75× the rate of mobile sessions (8.50% vs. 3.09%).
 - Overall, the dataset contains 472,871  
   website sessions and 32,313 conversions, giving an overall conversion rate of approximately 6.83%.
+
+### Data Quality
+- Dataset contains 472871 entries.
+- 17.62% values are missing in columns utm_source,utm_campaign,  
+  utm_content which accounts for 83328 rows
+- These records were retained since they comprise of sizable data 
+  and other features values of these rows are valuable for non utm_content,utm_campaign,utm_source analysis
+- For acquisition source analysis these rows will be treated   
+  separately.
+
+## Statistical Analysis
+
+### Traffic Source vs Conversion
+- NUll Hypotheses: Traffic source and conversion rate is not associated.
+- Alternate Hypothesis: Traffic source and conversion rate is associated.
+- Significance level: 0.05
+- Test: Chi-square test of independence
+- Result: Chi2ContingencyResult(statistic=np.float64(232.73750897190575), pvalue=np.float64(2.8952899363727394e-51), dof=2, expected_freq=array([[ 58598.43818012,   4224.56181988],
+       [294783.07960867,  21251.92039133],
+       [  9966.48221121,    718.51778879]]))
+- Conclusion: pvalue less than significance level hence reject Null hypothesis therefore Traffic source and conversion rates are associated.
+
+### Device Type vs Conversion
+- Null Hypotheses: Device type and conversion rates are not associated.
+- Alternate Hypothesis: Device type and conversion rates are associated.
+- Test: Chi-square test of independence
+- Significance level: 0.05
+- Result: Chi2ContingencyResult(statistic=np.float64(4638.433375968806), pvalue=np.float64(0.0), dof=1, expected_freq=array([[304680.05241599,  22346.94758401],
+       [135877.94758401,   9966.05241599]]))
+- Conclusion: Pvalue less than significance level hence rejecting null hypothesis therefore Device type and conversion rates are associated as well.
